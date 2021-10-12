@@ -31,12 +31,12 @@ ADD FOREIGN KEY (author_id) REFERENCES authors(author_id);
 ALTER TABLE authors
 ADD FOREIGN KEY (country_id) REFERENCES countries(country_id);
 
-CREATE TABLE publisher (
+CREATE TABLE publishers (
 	publisher_id int auto_increment,
     	publisher_name varchar(30),
     	PRIMARY KEY (publisher_id)
 	);
-ALTER TABLE publisher AUTO_INCREMENT = 200;
+ALTER TABLE publishers AUTO_INCREMENT = 200;
 
 CREATE TABLE publishing (
 	publisher_id int,
@@ -44,5 +44,5 @@ CREATE TABLE publishing (
     	total_sales int,
     	CONSTRAINT PK_publishing PRIMARY KEY (publisher_id, author_id),
     	FOREIGN KEY (author_id) REFERENCES authors(author_id),
-    	FOREIGN KEY (publisher_id) REFERENCES publisher(publisher_id)
+    	FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id)
     	);
